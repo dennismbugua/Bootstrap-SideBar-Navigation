@@ -1,3 +1,3 @@
 
 
-![Dashboard](https://ibb.co/dj24Sr5)
+![Dashboard](https://github.com/dennismbugua/Bootstrap-SideBar-Navigation/blob/main/imgs/dashboard.gif)
