@@ -33,17 +33,17 @@
         </div>
 
         <ul class="list-unstyled px-2">
-          <li class="active">
+          <li id="dashboard" class="active">
             <a href="#" class="text-decoration-none px-3 py-2 d-block"
               ><i class="fal fa-home"></i> Dashboard</a
             >
           </li>
-          <li class="">
+          <li id="projects">
             <a href="#" class="text-decoration-none px-3 py-2 d-block"
               ><i class="fal fa-list"></i> Projects</a
             >
           </li>
-          <li class="">
+          <li id="messages">
             <a
               href="#"
               class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"
@@ -52,12 +52,12 @@
               <span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
             </a>
           </li>
-          <li class="">
+          <li id="services">
             <a href="#" class="text-decoration-none px-3 py-2 d-block"
               ><i class="fal fa-envelope-open-text"></i> Services</a
             >
           </li>
-          <li class="">
+          <li id="customers">
             <a href="#" class="text-decoration-none px-3 py-2 d-block"
               ><i class="fal fa-users"></i> Customers</a
             >
@@ -66,12 +66,12 @@
         <hr class="h-color mx-2" />
 
         <ul class="list-unstyled px-2">
-          <li class="">
+          <li id="settings">
             <a href="#" class="text-decoration-none px-3 py-2 d-block"
               ><i class="fal fa-bars"></i> Settings</a
             >
           </li>
-          <li class="">
+          <li id="notifications">
             <a href="#" class="text-decoration-none px-3 py-2 d-block"
               ><i class="fal fa-bell"></i> Notifications</a
             >
@@ -115,7 +115,7 @@
           </div>
         </nav>
 
-        <div class="dashboard-content px-3 pt-4">
+        <div class="dashboard-content px-3 pt-4" id="content">
           <h2 class="fs-5">Dashboard</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
@@ -134,6 +134,48 @@
       $(".sidebar ul li").on("click", function () {
         $(".sidebar ul li.active").removeClass("active");
         $(this).addClass("active");
+
+        var id = $(this).attr("id");
+        var contentTitle, contentText;
+
+        switch (id) {
+          case "dashboard":
+            contentTitle = "Dashboard";
+            contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, totam? Sequi alias eveniet ut quas ullam delectus et quasi incidunt rem deserunt asperiores reiciendis assumenda doloremque provident, dolores aspernatur neque.";
+            break;
+          case "projects":
+            contentTitle = "Projects";
+            contentText = "Here are the details of your projects. Manage and track the progress of your projects here.";
+            break;
+          case "messages":
+            contentTitle = "Messages";
+            contentText = "Check your messages. Stay connected with your team and clients.";
+            break;
+          case "services":
+            contentTitle = "Services";
+            contentText = "Explore the services we offer. Enhance your business with our specialized services.";
+            break;
+          case "customers":
+            contentTitle = "Customers";
+            contentText = "Manage your customer information and interactions here. Understand and engage with your customers.";
+            break;
+          case "settings":
+            contentTitle = "Settings";
+            contentText = "Adjust your preferences and account settings here.";
+            break;
+          case "notifications":
+            contentTitle = "Notifications";
+            contentText = "View your notifications and alerts here.";
+            break;
+          default:
+            contentTitle = "Dashboard";
+            contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, totam? Sequi alias eveniet ut quas ullam delectus et quasi incidunt rem deserunt asperiores reiciendis assumenda doloremque provident, dolores aspernatur neque.";
+        }
+
+        $("#content").html(`
+          <h2 class="fs-5">${contentTitle}</h2>
+          <p>${contentText}</p>
+        `);
       });
 
       $(".open-btn").on("click", function () {
